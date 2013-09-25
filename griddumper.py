@@ -30,7 +30,7 @@ username = input("Enter your steam profile username: ")
 profileURL = "http://steamcommunity.com/id/" + username + "/games?tab=all"
 stream = urllib.request.urlopen(profileURL)
 if stream is None:
-    print("Stream produced nothing or did not load")
+    print("Stream produced nothing or did not load, failing obviously")
     sys.exit()
 
 try:
