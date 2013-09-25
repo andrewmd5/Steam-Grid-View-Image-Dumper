@@ -1,4 +1,5 @@
-Steam-Gridview-Cacher
-=====================
-
-Will download the grid view images of games based on the profile of a user
+How to use:
+Run the python file
+enter your public username EG: Codeusasoftware
+Hit enter
+Watch the magic
