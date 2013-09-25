@@ -52,7 +52,7 @@ for appid in app_ids:
     '''
     profileURL = "http://cdn.steampowered.com/v/gfx/apps/" + str(appid) + "/header.jpg"
     if os.path.exists(path):
-        print("Already did this one, moving on. AppID: " + str(appid))
+        print("Already saved this one, moving on. AppID: " + str(appid))
         continue
 
     try:
