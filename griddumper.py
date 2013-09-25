@@ -5,11 +5,10 @@ Created on Sep 24, 2013
 http://blog.codeusa.net
 '''
 import sys
-import urllib.request
-import re
 import os.path
+import urllib.request
 import time
-
+import re
 
 def get_app_ids(appstring):
     index = '"appid":'
