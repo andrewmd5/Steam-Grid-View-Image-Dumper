@@ -1,21 +1,17 @@
-'''
-Created on Sep 24, 2013
 
-@author: Andrew/Codeusa
-http://blog.codeusa.net
-'''
 import sys
 import os.path
-import urllib.request
+from urllib2 import urlopen, HTTPError
 import time
 import re
+
 
 def get_app_ids(appstring):
     index = '"appid":'
     substring = 0
     while True:
         substring = appstring.find(index, substring)
-        if substring == -1: 
+        if substring == -1:
             return
         pattern = re.compile('(\"appid":)([0-9]+)')
         match = pattern.match(appstring, substring)
@@ -24,10 +20,10 @@ def get_app_ids(appstring):
         yield resolve
 
 
-username = input("Enter your steam profile username: ")
+username = raw_input("Enter your steam profile username: ")
 
 profileURL = "http://steamcommunity.com/id/" + username + "/games?tab=all"
-stream = urllib.request.urlopen(profileURL)
+stream = urlopen(profileURL)
 if stream is None:
     print("Stream produced nothing or did not load, failing obviously")
     sys.exit()
@@ -39,7 +35,7 @@ except OSError:
 
 app_ids = []
 for line in stream:
-    line = str(line, encoding='utf8')
+    line = str(line)
     for appid in get_app_ids(line):
         app_ids.append(appid)
 
@@ -55,8 +51,8 @@ for appid in app_ids:
         continue
 
     try:
-        stream = urllib.request.urlopen(profileURL)
-    except urllib.error.HTTPError:
+        stream = urlopen(profileURL)
+    except HTTPError:
         print("Can't stream URL " + str(appid))
         continue
 
