@@ -1,4 +1,3 @@
-
 import sys
 import os.path
 from urllib2 import urlopen, HTTPError
@@ -59,4 +58,3 @@ for appid in app_ids:
     f = open(path, 'wb')
     f.write(stream.read())
     print("Downloading Grid for AppID: " + str(appid))
-    time.sleep(2)
